@@ -3,11 +3,11 @@ const keys = [["Q","W","E","R","T","Y","U","I","O","P"],
               ["A","S","D","F","G","H","J","K","L"],
               ["Z","X","C","V","B","N","M"]];
 
-remoteControl("BOB");
+remoteControl("CAR");
 
 function remoteControl(word) {
 
-    const positions = [[0, 0]]
+    const positions = [0,0]
     let row = 0;
     let column = 0;
 
@@ -29,19 +29,38 @@ function remoteControl(word) {
 
         };
 
-        positions.push([row, column]);
+        positions.push(row, column);
 
     };
 
-    calcRoute(positions);
+    moveToRow(positions);
 
 };
 
-function calcRoute(positions) {
+function moveToRow(positions) {
 
     console.log(positions)
-    
 
+        for (let i=0; i < positions.length; i+=4) {
+
+            for (let j=2; j < positions.length-1; j+=4 ) {
+                console.log(positions[i] + "!" + positions[j] + "j")
+                    
+                    if (positions[i] < positions[j]) {
+                        console.log(positions[i] + "!!" + positions[j] + "jj")
+                        for (let k=0; k < positions[j]; k++) {
+                            console.log("down ")
+                        }
+                    } else {
+                        for (let l=0; l < positions[j]; l++) {
+                            console.log("up")
+                        }
+                    }
+
+
+            } 
+        } 
+        
 };
 
   
