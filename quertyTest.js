@@ -1,4 +1,3 @@
-
 const keys = [["Q","W","E","R","T","Y","U","I","O","P"], 
               ["A","S","D","F","G","H","J","K","L"],
               ["Z","X","C","V","B","N","M"]];
@@ -43,19 +42,18 @@ function routeFinder(coord) {
     var counter = 0;
     console.log(coord)
 
-    for (let i=0; i < coord.length; i++) {
-        for (let j=2; j < coord.length; j++) {
-            console.log(coord[i], coord[j])
+    for (let i=0; i < coord.length -2 ; i++) {
+            console.log(coord[i], coord[i + 2])
             console.log(counter)
             if (counter % 2 === 0) {
-                if (coord[i] < coord[j]) {
-                    move = coord[i] + coord[j]
+                if (coord[i] < coord[i + 2]) {
+                    move = coord[i] + coord[i + 2]
                     for (let k=0; k < move; k++) {
                         console.log("down")
                     }  
-                } else if (coord[i] > coord[j]) {
-                    move = coord[i] + coord[j]
-                    for (let l=0; l < coord[j]; l++) {
+                } else if (coord[i] > coord[i + 2]) {
+                    move = coord[i] + coord[i + 2]
+                    for (let l=0; l < coord[i + 2]; l++) {
                         console.log("up")
                     }
                 } else {
@@ -64,14 +62,14 @@ function routeFinder(coord) {
 
             } else {
 
-                if (coord[i] < coord[j]) {
-                    move = coord[i] + coord[j]
+                if (coord[i] < coord[i + 2]) {
+                    move = coord[i] + coord[ i + 2]
                     for (let k=0; k < move; k++) {
                         console.log("right")
                     }  
-                } else if (coord[i] > coord[j]) {
-                    move = coord[i] + coord[j]
-                    for (let l=0; l < coord[j]; l++) {
+                } else if (coord[i] > coord[i + 2]) {
+                    move = coord[i] + coord[i + 2]
+                    for (let l=0; l < coord[i + 2]; l++) {
                         console.log("left")
                     }
                 } else {
@@ -82,11 +80,7 @@ function routeFinder(coord) {
 
             counter += 1;
 
-        }
-
         
     } 
     
 };
-
-  
