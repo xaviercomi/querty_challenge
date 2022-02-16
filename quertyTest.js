@@ -1,12 +1,12 @@
 const keys = [["Q","W","E","R","T","Y","U","I","O","P"], 
-              ["A","S","D","F","G","H","J","K","L"],
-              ["Z","X","C","V","B","N","M"]];
+              ["A","S","D","F","G","H","J","K","L"," "],
+              ["Z","X","C","V","B","N","M"," "," "," "]];
 
-remoteControl("XA");
+remoteControl("PLM");
 
 function remoteControl(word) {
 
-    const coord = [0,0,]
+    const coord = [0,0]
     let row = 0;
     let column = 0;
 
@@ -48,12 +48,13 @@ function routeFinder(coord) {
             if (counter % 2 === 0) {
                 if (coord[i] < coord[i + 2]) {
                     move = coord[i] + coord[i + 2]
-                    for (let k=0; k < move; k++) {
+                    for (let k=0; k <= coord[i]; k++) {
                         console.log("down")
-                    }  
+                    }
+                  
                 } else if (coord[i] > coord[i + 2]) {
-                    move = coord[i] + coord[i + 2]
-                    for (let l=0; l < coord[i + 2]; l++) {
+                    move = coord[i] - coord[i + 2]
+                    for (let l=0; l <= coord[i]; l++) {
                         console.log("up")
                     }
                 } else {
@@ -63,12 +64,12 @@ function routeFinder(coord) {
             } else {
 
                 if (coord[i] < coord[i + 2]) {
-                    move = coord[i] + coord[ i + 2]
-                    for (let k=0; k < move; k++) {
+                    move = coord[i] + coord[i + 2]
+                    for (let k=0; k < coord[i + 2]; k++) {
                         console.log("right")
                     }  
                 } else if (coord[i] > coord[i + 2]) {
-                    move = coord[i] + coord[i + 2]
+                    move = coord[i] - coord[i + 2]
                     for (let l=0; l < coord[i + 2]; l++) {
                         console.log("left")
                     }
@@ -79,7 +80,8 @@ function routeFinder(coord) {
             }
 
             counter += 1;
-
+            if (counter % 2 === 0)
+            console.log("enter")
         
     } 
     
