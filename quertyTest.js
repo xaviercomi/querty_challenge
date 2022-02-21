@@ -2,7 +2,7 @@ const keys = [["Q","W","E","R","T","Y","U","I","O","P"],
               ["A","S","D","F","G","H","J","K","L"," "],
               ["Z","X","C","V","B","N","M"," "," "," "]];
 
-remoteControl("PLM");
+remoteControl("CAR");
 
 function remoteControl(word) {
 
@@ -15,14 +15,13 @@ function remoteControl(word) {
     console.log(userWord)
 
     for (let i = 0; i < userWord.length; i++) {
-        const userKey = userWord[i]
-        console.log(userKey + "  letter from the user word")      
+        const userKey = userWord[i]   
 
         for (let j = 0; j < keys.length; j++) {
             row = keys.findIndex(indexRow => indexRow.includes(userKey));
 
             for (let k = 0; k < keys[row].length; k++) {
-                column = keys[row].findIndex(indexColumn => indexColumn.includes(userKey))
+                column = keys[row].findIndex(indexColumn => indexColumn.includes(userKey));
 
             };
 
@@ -38,23 +37,19 @@ function remoteControl(word) {
 
 function routeFinder(coord) {
 
-    var move = 0;
     var counter = 0;
     console.log(coord)
+   
+    for (i=0; i < coord.length -2 ; i++) {
 
-    for (let i=0; i < coord.length -2 ; i++) {
-            console.log(coord[i], coord[i + 2])
-            console.log(counter)
             if (counter % 2 === 0) {
-                if (coord[i] < coord[i + 2]) {
-                    move = coord[i] + coord[i + 2]
-                    for (let k=0; k <= coord[i]; k++) {
+
+                if (coord[i] < coord[i+2]) {
+                    for (let k=coord[i]; k < coord[i+2]; k++) {
                         console.log("down")
                     }
-                  
-                } else if (coord[i] > coord[i + 2]) {
-                    move = coord[i] - coord[i + 2]
-                    for (let l=0; l <= coord[i]; l++) {
+                } else if (coord[i] > coord[i+2]) {
+                    for (let l=coord[i+2]; l < coord[i]; l++) {
                         console.log("up")
                     }
                 } else {
@@ -63,14 +58,14 @@ function routeFinder(coord) {
 
             } else {
 
-                if (coord[i] < coord[i + 2]) {
-                    move = coord[i] + coord[i + 2]
-                    for (let k=0; k < coord[i + 2]; k++) {
+                if (coord[i] < coord[i+2]) {
+       
+                    for (let j=coord[i]; j < coord[i+2]; j++) {
                         console.log("right")
                     }  
-                } else if (coord[i] > coord[i + 2]) {
-                    move = coord[i] - coord[i + 2]
-                    for (let l=0; l < coord[i + 2]; l++) {
+                } else if (coord[i] > coord[i+2]) {
+     
+                    for (let f=coord[i+2]; f < coord[i]; f++) {
                         console.log("left")
                     }
                 } else {
